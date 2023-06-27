@@ -1,10 +1,11 @@
 import Register from './Register';
 
 function App() {
+
   return (
-    <div className="App">
+    <main className="App">
       <Register />
-    </div>
+    </main>
   );
 }
 

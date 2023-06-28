@@ -70,22 +70,22 @@ const Register = () => {
       setErrMsg("Por favor, corrija os campos inválidos");
       return;
     }
-    console.log(user, pwd, email);
     setSuccess(true);
 
     try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({ user, pwd }),
-        {
-          headers: { "Content-Type": "application/json" },
-        //   withCredentials: true,
-        }
-      );
-      console.log(response.data);
-      console.log(response.acessToken);
-      console.log(JSON.stringify(response));
-      setSuccess(true);
+      const data = {
+        user: user,
+        email: email,
+        pwd: pwd,
+      };
+
+      const response = await axios.post(REGISTER_URL, JSON.stringify(data), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      
+      console.log(response);
     } catch (err) {
       if (!err.response) {
         setErrMsg("Erro de rede");
@@ -166,7 +166,6 @@ const Register = () => {
             <input
               type="text"
               id="email"
-              ref={userRef}
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               required

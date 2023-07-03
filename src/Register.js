@@ -10,7 +10,7 @@ import axios from "./api/axios";
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-const REGISTER_URL = "/auth/register";
+const REGISTER_URL = "/register";
 
 const Register = () => {
   const userRef = useRef();
@@ -84,7 +84,7 @@ const Register = () => {
           "Content-Type": "application/json",
         },
       });
-      
+
       console.log(response);
     } catch (err) {
       if (!err.response) {
@@ -101,9 +101,9 @@ const Register = () => {
     <>
       {success ? (
         <section>
-          <h1>Success!</h1>
+          <h1>Registrado!</h1>
           <p>
-            <a href="#">Sign In</a>
+            <a href="#">Entrar</a>
           </p>
         </section>
       ) : (
@@ -259,15 +259,15 @@ const Register = () => {
             <button
               disabled={!validName || !validPwd || !validMatch ? true : false}
             >
-              Sign Up
+              Registrar
             </button>
           </form>
           <p>
-            Already registered?
+            Já tem conta?
             <br />
             <span className="line">
               {/*put router link here*/}
-              <a href="#">Sign In</a>
+              <a href="#">Entrar</a>
             </span>
           </p>
         </section>

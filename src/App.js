@@ -1,8 +1,7 @@
-import Register from './Register';
-import Login from './login';
+import Register from "./Register";
+import Login from "./login";
 
 function App() {
-
   return (
     <main className="App">
       <Login />
